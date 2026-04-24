@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/bfhl",
-      "destination": "/api/index.js"
+      "destination": "/api/bfhl"
     },
     {
       "source": "/(.*)",
