@@ -5,7 +5,9 @@ import test from 'node:test';
 
 import handler from '../api/bfhl';
 import { buildBfhlResponse, getIdentityConfig } from '../lib/bfhl';
-import app from '../server';
+
+process.env.BFHL_DISABLE_SERVER_AUTO_START = '1';
+const { default: app } = await import('../server');
 
 async function withServer(run: (baseUrl: string) => Promise<void>) {
   const server = createServer(app);

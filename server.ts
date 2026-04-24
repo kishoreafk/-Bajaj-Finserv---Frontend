@@ -5,7 +5,6 @@ import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
 import { buildBfhlResponse, getIdentityConfig } from './lib/bfhl';
 
@@ -100,11 +99,7 @@ async function startServer() {
   });
 }
 
-const isMainModule = process.argv[1]
-  ? path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
-  : false;
-
-if (isMainModule) {
+if (process.env.BFHL_DISABLE_SERVER_AUTO_START !== '1' && process.env.VERCEL !== '1') {
   startServer().catch((error) => {
     console.error(error);
     process.exit(1);
