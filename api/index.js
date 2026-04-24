@@ -4,6 +4,6 @@
 // Since we compiled TS to 'dist/server.js', we import the compiled version.
 // Alternatively, if Vercel compiles TS, we could import '../server' directly.
 
-const app = require('../dist/server.cjs').default;
+const app = require('../dist/server.js').default;
 
 module.exports = app;

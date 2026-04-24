@@ -1,14 +1,14 @@
 {
   "version": 2,
   "functions": {
-    "api/index.cjs": {
-      "includeFiles": "dist/server.cjs"
+    "api/index.js": {
+      "includeFiles": "dist/server.js"
     }
   },
   "rewrites": [
     {
       "source": "/bfhl",
-      "destination": "/api/index.cjs"
+      "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",

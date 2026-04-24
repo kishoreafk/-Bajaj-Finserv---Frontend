@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && tsc server.ts --outDir dist --module commonjs --target es2020 --esModuleInterop --skipLibCheck && ren dist\\server.js server.cjs || mv dist/server.js dist/server.cjs",
+    "build": "vite build && tsc server.ts --outDir dist --module commonjs --target es2020 --esModuleInterop --skipLibCheck",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
