@@ -8,8 +8,19 @@ import path from 'path';
 
 const app = express();
 
-// Security headers
-app.use(helmet());
+// Security headers — relaxed CSP in dev for Vite HMR inline scripts + WS
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      connectSrc: ["'self'", "ws:", "wss:", "http:", "https:"],
+      imgSrc: ["'self'", "data:", "blob:"],
+      fontSrc: ["'self'"],
+    },
+  },
+}));
 
 // CORS - controlled but not strict (allows evaluator tools)
 const allowedOrigins = [
